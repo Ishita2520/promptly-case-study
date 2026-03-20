@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Promptly — Ishita UX Case Study</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* Fade animation */
+    .fade-section { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-section.visible { opacity: 1; transform: translateY(0); }
+
+    /* Lightbox */
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center; padding: 24px; }
+    #lightbox.open { display: flex; }
+    #lb-inner { position: relative; max-width: 1000px; width: 100%; }
+    #lb-img { width: 100%; border-radius: 10px; display: block; }
+    #lb-caption { color: #ccc; font-size: 13px; margin-top: 12px; text-align: center; }
+    #lb-close { position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; line-height: 1; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-back" href="https://ishitaumredkar25.wixstudio.com/my-site-3">← Back to Portfolio</a>
+  <span class="nav-label">UX Case Study · B2B E-Commerce</span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-tag">UX Engineering · B2B Web Platform · Client Project</p>
+  <h1>Turning a 2-week process into a <em>10-minute</em> experience.</h1>
+  <p class="hero-sub">Promptly is an AI-powered e-commerce platform I designed and engineered for Resource &amp; Supply — a promotional products distributor — eliminating an email-dependent ordering process that was costing them time, accuracy, and sales.</p>
+  <div class="meta-grid">
+    <div class="meta-item"><label>My Role</label><span>UX Engineer &amp; Frontend Dev</span></div>
+    <div class="meta-item"><label>Team</label><span>5 members</span></div>
+    <div class="meta-item"><label>Client</label><span>Resource &amp; Supply</span></div>
+    <div class="meta-item"><label>Tools</label><span>Figma · React · AWS · REST APIs</span></div>
+  </div>
+  <div class="tags">
+    <span class="tag">UX Engineering</span>
+    <span class="tag">AI/ML Integration</span>
+    <span class="tag">E-Commerce</span>
+    <span class="tag">User Research</span>
+    <span class="tag">IoT Systems</span>
+    <span class="tag">AR Prototyping</span>
+    <span class="tag">Business Model Design</span>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<!-- 01 OVERVIEW -->
+<section class="section">
+  <p class="section-label">01 · Overview</p>
+  <h2>The process wasn't broken. It was <em>absent.</em></h2>
+  <p>Resource &amp; Supply's clients place promotional product orders — branded mugs, apparel, corporate swag — but the entire workflow happened over email. A Customer Service Representative would manually pick products, gather brand files, commission proofs, wait for approval, and loop back through revisions. Each cycle added days.</p>
+  <p>The result: an average turnaround of <strong>two weeks per order</strong> — not because of production, but because of an ordering process that had never been redesigned for modern expectations.</p>
+  <p>My role spanned the full stack: I contributed to UX research, led key areas of interaction design, and handled frontend engineering to bring the platform to life.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">37%</div>
+      <div class="stat-desc">Projected increase in sales from streamlined ordering</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2 wks → 10 min</div>
+      <div class="stat-desc">Order turnaround reduced via self-service proofing</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$17.8B</div>
+      <div class="stat-desc">Promotional products industry revenue in 2024</div>
+    </div>
+  </div>
+  <div class="pull-quote">
+    <p>"As a customer placing a promotional product order, I want to ease the ordering process so I can avoid explaining changes over email and reviewing multiple proofs — but ordering through emails causes misunderstandings and delays."</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 02 RESEARCH -->
+<section class="section">
+  <p class="section-label">02 · Research &amp; Context</p>
+  <h2>A high-growth market with a <em>process stuck in 2005.</em></h2>
+  <p>72% of B2B buyers now demand seamless online ordering. 90% prefer customized brand experiences. Yet 4imprint, Vistaprint, BAMKO, and HALO — the dominant players — still lack real-time proofing and interactive customization. The gap was clear.</p>
+  <p>Our primary persona, John Thompson, is a 40-year-old Sales Manager in Indiana. He orders promotional products regularly for corporate campaigns, is moderately tech-literate, and just wants accurate products delivered on time without the back-and-forth.</p>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="icon">📧</div>
+      <h4>Proofing over email broke everything</h4>
+      <p>Proofs sent by email didn't match the sales order, leading to repeated revision cycles that delayed delivery and frustrated clients.</p>
+    </div>
+    <div class="insight-card">
+      <div class="icon">🔁</div>
+      <h4>Repeat proofing caused the biggest delays</h4>
+      <p>The emotional low point in the customer journey was proof review — where mismatched IP caused the entire cycle to restart from scratch.</p>
+    </div>
+    <div class="insight-card">
+      <div class="icon">📋</div>
+      <h4>Limited product discovery</h4>
+      <p>CSRs manually curated a small set of product options, meaning customers rarely saw the full catalog or discovered new items.</p>
+    </div>
+    <div class="insight-card">
+      <div class="icon">📦</div>
+      <h4>Final product often differed from proof</h4>
+      <p>Without live previews, what clients approved and what they received were sometimes meaningfully different — leading to costly dissatisfaction.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 03 SOLUTION -->
+<section class="section">
+  <p class="section-label">03 · Our Solution</p>
+  <h2>Promptly — self-service ordering, <em>built for real people.</em></h2>
+  <p>We designed Promptly as an AI-powered e-commerce platform that eliminates the CSR from the ordering loop entirely — without losing the quality or accuracy clients need.</p>
+  <div class="features">
+    <div class="feature">
+      <h4>🛒 E-Commerce Experience</h4>
+      <p>A familiar, Amazon-style storefront where clients browse the full product catalog, filter by category and price, and place orders without needing a CSR to curate options for them.</p>
+      <blockquote>"The interface feels intuitive and familiar, almost like shopping on Amazon, which made navigation super easy for me."</blockquote>
+    </div>
+    <div class="feature">
+      <h4>👤 User Accounts &amp; Smart Reordering</h4>
+      <p>Persistent customer profiles store past orders and brand preferences, enabling AI-driven reorder recommendations and eliminating repeat setup time for returning clients.</p>
+      <blockquote>"I like the concept of revisiting my past orders and receiving personalized recommendations based on them."</blockquote>
+    </div>
+    <div class="feature">
+      <h4>🤖 AI-Driven Customization</h4>
+      <p>Clients upload brand assets and the AI generates multiple proof variants automatically — starting with popular options, then offering advanced and fully custom AI-suggested designs.</p>
+      <blockquote>"AI-driven customizations showed me different variations, something I wouldn't have even bothered to check out."</blockquote>
+    </div>
+    <div class="feature">
+      <h4>🔍 Live Product Proofs &amp; AR Previews</h4>
+      <p>Real-time AR and 360° views let clients see exactly what their branded product will look like before ordering — eliminating the approval cycle that was costing everyone weeks.</p>
+      <blockquote>"Seeing a live preview of the product with my logo made it so much easier to finalize my decision."</blockquote>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 03.5 SCREENS -->
+<section class="section">
+  <p class="section-label">03.5 · User Journey Walkthrough</p>
+  <h2>From browsing to order confirmed — <em>in under 10 minutes.</em></h2>
+  <p>Every screen in the flow was designed to eliminate a specific friction point from the old email-based process. Click any screen to expand it.</p>
+
+  <div class="screen-step">
+
+    <div>
+      <div class="step-header">
+        <span class="step-badge">Step 1</span>
+        <span class="step-title">Storefront — browse the full catalog</span>
+      </div>
+      <div class="screen-img">
+        <img src="images/screen-01-storefront.png" alt="R&S storefront homepage showing product categories and top sellers"/>
+      </div>
+      <p class="screen-caption">A familiar e-commerce homepage replaces the CSR-curated email. Clients can browse by category and discover products they'd never have known to ask for.</p>
+    </div>
+
+    <div>
+      <div class="step-header">
+        <span class="step-badge">Step 2</span>
+        <span class="step-title">Product detail — upload logo, set quantity</span>
+      </div>
+      <div class="screen-img">
+        <img src="images/screen-02-product-detail.png" alt="Product detail page with drag-and-drop logo upload, color options, quantity slider and live price"/>
+      </div>
+      <p class="screen-caption">Clients drag and drop their logo directly onto a live product preview, pick a color, and set quantity with a price that auto-calculates. No file emails, no back-and-forth on specs.</p>
+    </div>
+
+    <div>
+      <div class="step-header">
+        <span class="step-badge">Step 3</span>
+        <span class="step-title">Customization editor — printable area, 3D view, AR</span>
+      </div>
+      <div class="screen-img">
+        <img src="images/screen-03-customization.png" alt="Customization editor showing printable area dimensions, 3D view, and AR preview toolbar"/>
+      </div>
+      <p class="screen-caption">The editor shows exact printable dimensions on a 3D product canvas. Clients can switch between Text, Colors, Images, Shapes, 3D View, and AR Preview — full creative control without needing a design background.</p>
+    </div>
+
+    <div>
+      <div class="step-header">
+        <span class="step-badge">Step 4</span>
+        <span class="step-title">AI proof generation — first round of variants</span>
+      </div>
+      <div class="screen-img-pair">
+        <div class="screen-img">
+          <img src="images/screen-04-ai-variants-1a.png" alt="AI generated proof variants — first iteration showing 4 logo layout options on ceramic mug"/>
+        </div>
+        <div class="screen-img">
+          <img src="images/screen-05-ai-variants-1b.png" alt="AI proof generation with natural language prompt showing 4 design variants"/>
+        </div>
+      </div>
+      <p class="screen-caption">The client types a natural language prompt and the AI generates four proof variants instantly. A 360° drag view lets them inspect every angle before deciding.</p>
+    </div>
+
+    <div>
+      <div class="step-header">
+        <span class="step-badge">Step 5</span>
+        <span class="step-title">AI iteration — refine and regenerate</span>
+      </div>
+      <div class="screen-img">
+        <img src="images/screen-06-ai-variants-2.png" alt="Second round of AI proof variants showing star pattern designs across the full mug surface"/>
+      </div>
+      <p class="screen-caption">Not happy with the first round? Hit Regenerate. The AI produces an entirely new set of variants. What used to take a week of email rounds now takes seconds.</p>
+    </div>
+
+    <div>
+      <div class="step-header">
+        <span class="step-badge">Step 6</span>
+        <span class="step-title">Proof detail — dimensions and final review</span>
+      </div>
+      <div class="screen-img">
+        <img src="images/screen-07-proof-detail.png" alt="Proof detail modal showing selected mug design with exact print dimensions annotated"/>
+      </div>
+      <p class="screen-caption">Before committing, clients can expand any proof to see exact print dimensions annotated directly on the product. This single screen replaces the embellisher proof email — the most frustrating step in the old journey.</p>
+    </div>
+
+    <div>
+      <div class="step-header">
+        <span class="step-badge">Step 7</span>
+        <span class="step-title">Order review — quantity, shipping, payment</span>
+      </div>
+      <div class="screen-img">
+        <img src="images/screen-08-order-review.png" alt="Order review modal showing product image, quantity, subtotal, shipping address, payment method and arrival date"/>
+      </div>
+      <p class="screen-caption">A clean order modal surfaces everything at once — quantity, live price, shipping address, payment method, and estimated arrival. No surprises, no separate confirmation emails.</p>
+    </div>
+
+    <div>
+      <div class="step-header">
+        <span class="step-badge">Step 8</span>
+        <span class="step-title">Order confirmed — done</span>
+      </div>
+      <div class="screen-img">
+        <img src="images/screen-09-confirmed.png" alt="Order confirmed modal showing final product image, order summary and continue shopping button"/>
+      </div>
+      <p class="screen-caption">Order placed. No follow-up email needed, no CSR loop to close. The client has a confirmed order, a delivery date, and an invoice — all self-served in under 10 minutes.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 04 DESIGN PROCESS -->
+<section class="section">
+  <p class="section-label">04 · Design &amp; Engineering Process</p>
+  <h2>From client journey maps to <em>a working frontend.</em></h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div><h4>Client Journey Mapping</h4><p>We mapped the full ordering journey across six touchpoints. The map revealed the emotional low point was proof review from the embellisher — where mismatch with approved IP caused frustration and delays. This became the primary design target.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div><h4>Competitive Analysis</h4><p>We benchmarked 4imprint, Vistaprint, BAMKO, and HALO. All four excel at product variety but none offer real-time proofing, live AR previews, or AI-driven design suggestions. We identified this as Promptly's core differentiator.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div><h4>Persona &amp; Tiered Design Framework</h4><p>We designed around three customer types: the time-pressed buyer, the hands-on customizer, and the creative power user. This tiered approach ensured no user felt overwhelmed while still offering depth for those who wanted it.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div><h4>IoT Architecture &amp; Technical Design</h4><p>I helped design the full system architecture: mobile camera sensors for AR spatial data, internet &amp; mobile network transmission via HTTPS/REST APIs/WebSockets, AWS cloud for product catalogs, AI model hosting, and security management.</p></div></div>
+    <div class="step"><div class="step-num">5</div><div><h4>Frontend Engineering</h4><p>I led frontend development, building the e-commerce storefront, product customization interface, and proof preview components. The goal was a familiar, fast, and intuitive experience that required no training for end users.</p></div></div>
+    <div class="step"><div class="step-num">6</div><div><h4>Prototype &amp; Pitch</h4><p>We packaged the full solution — market research, user research, business model canvas, SWOT analysis, and revenue model — into a pitch delivered to Resource &amp; Supply stakeholders.</p></div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 05 TECH -->
+<section class="section">
+  <p class="section-label">05 · Technical Architecture</p>
+  <h2>A full-stack system designed for <em>scale.</em></h2>
+  <table class="tech-table">
+    <thead><tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td>Sensors</td><td>Mobile Phone Camera</td><td>Captures spatial data for real-world AR product previews</td></tr>
+      <tr><td>Communication</td><td>Internet &amp; Mobile Network</td><td>Transmits data between client device and AWS backend</td></tr>
+      <tr><td>Protocols</td><td>HTTPS · REST APIs · WebSockets</td><td>Secure, real-time data transfer and proof updates</td></tr>
+      <tr><td>Cloud</td><td>AWS</td><td>Hosts product catalogs, user data, generated proofs, AI models, and security</td></tr>
+      <tr><td>Catalog</td><td>ASI's API + SAGE / ESP / CommonSKU</td><td>Sources promotional product inventory from distributor networks</td></tr>
+      <tr><td>Frontend</td><td>React · Shopify / CommonSKU</td><td>Self-service e-commerce storefront with embedded AI features</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<!-- 06 BUSINESS MODEL -->
+<section class="section">
+  <p class="section-label">06 · Business Model</p>
+  <h2>Two revenue streams. One <em>compounding advantage.</em></h2>
+  <p>Promptly creates value in two directions: directly for R&amp;S clients through the e-commerce platform, and horizontally for other distributors through an AI proof generation API.</p>
+  <p style="margin-top:24px;font-weight:600;color:#1a1a1a">Primary — E-Commerce Sales</p>
+  <p>The Shopify or CommonSKU storefront generates revenue from direct promotional product sales. AI personalization improves conversion rates and increases average order value as users discover new products and variations.</p>
+  <p style="margin-top:24px;font-weight:600;color:#1a1a1a">Secondary — SaaS Subscription (API Access)</p>
+  <p>Other promotional product distributors can license Promptly's AI proof generation tool via a tiered monthly subscription:</p>
+  <div class="biz-tiers">
+    <div class="tier"><div class="tier-price">$50</div><div class="tier-label">/month</div><div class="tier-proofs">50 Proofs</div></div>
+    <div class="tier"><div class="tier-price">$150</div><div class="tier-label">/month</div><div class="tier-proofs">500 Proofs</div></div>
+    <div class="tier"><div class="tier-price">$250</div><div class="tier-label">/month</div><div class="tier-proofs">2,000 Proofs</div></div>
+    <div class="tier"><div class="tier-price">$500</div><div class="tier-label">/month</div><div class="tier-proofs">Unlimited Proofs</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 07 TESTING -->
+<section class="section">
+  <p class="section-label">07 · Validation</p>
+  <h2>What the pitch revealed — and what we'd <em>do next.</em></h2>
+  <div class="before-after">
+    <div class="ba-card before">
+      <h4>❌ Current State Problems</h4>
+      <ul>
+        <li>Proofs arrive via email, hard to annotate or track changes</li>
+        <li>Limited product options surfaced to clients by CSRs</li>
+        <li>No live preview — final product often differs from proof</li>
+        <li>CSRs stuck doing manual, repetitive order management</li>
+        <li>2-week average turnaround due to back-and-forth cycles</li>
+      </ul>
+    </div>
+    <div class="ba-card after">
+      <h4>✅ Promptly's Solutions</h4>
+      <ul>
+        <li>Collaborative real-time proofing with inline commenting</li>
+        <li>Full self-browse catalog with filters and reorder recommendations</li>
+        <li>Live AR/360° preview before any order is placed</li>
+        <li>CSRs freed to focus on lead generation and sales</li>
+        <li>Projected turnaround reduced from 2 weeks to 10 minutes</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pull-quote">
+    <p>"The self-service model doesn't remove the human from the process — it removes the friction. CSRs get their time back. Clients get their autonomy back."</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 08 REFLECTION -->
+<section class="section">
+  <p class="section-label">08 · Outcomes &amp; Reflection</p>
+  <h2>What I learned about designing for <em>real business constraints.</em></h2>
+  <div class="reflection-grid">
+    <div class="ref-card"><h4>Research → Engineering</h4><p>Being involved in both research and frontend development meant I understood the "why" behind every UI decision. That context made my engineering choices better — not just technically, but experientially.</p></div>
+    <div class="ref-card"><h4>B2B ≠ boring UX</h4><p>B2B users have the same expectations as consumers. John Thompson doesn't want a clunky portal — he wants Amazon. Designing for that insight changed how I approached every screen.</p></div>
+    <div class="ref-card"><h4>Systems thinking matters</h4><p>Designing the IoT ecosystem taught me to think beyond the interface — how data flows, where latency affects UX, and how backend decisions shape what's possible on the frontend.</p></div>
+    <div class="ref-card"><h4>What I'd do next</h4><p>Usability testing with actual R&amp;S clients, A/B testing the proof generation flow, and measuring real order turnaround times post-launch to validate the 37% sales projection against actual data.</p></div>
+  </div>
+</section>
+
+<footer>
+  Promptly · Case Study by Ishita Umredkar &nbsp;·&nbsp; <a href="https://ishitaumredkar25.wixstudio.com/my-site-3">← Back to Portfolio</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
